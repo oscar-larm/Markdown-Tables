@@ -1,2 +1,2 @@
-# Markdown-Tables
+# markdown-tables
 Very lightweight md table generator
