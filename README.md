@@ -1,2 +1,2 @@
-# markdown-tables
-Very lightweight md table generator
+# budget-generator-md
+A very lightweight script for generating a markdown formatted table when making a budget.
