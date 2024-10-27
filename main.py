@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 '''
 Lightweight python script to generate tables in Markdown.
 '''
