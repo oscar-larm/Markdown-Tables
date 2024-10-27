@@ -11,9 +11,12 @@ def make_budget():
         'spent': 0
         }
     budget['total'] = int(input('Input total budget: '))
+    print(padding_seperate(budget))
     while True:
-        inp = input('Enter category: ')
+        inp = input('Enter category (empty to continue): ').title()
         if inp == '':
+            for _ in range(50):
+                print('\n')
             break
 
         budget['column1'].append(inp)
@@ -22,8 +25,9 @@ def make_budget():
 
         print(padding_seperate(budget))
 
-    print(f'Total Budget: {budget['total']}')
     for i, row in enumerate(budget['column1'][2:]):
+        print(padding_seperate(budget))
+
         print(f'Money Left: {budget['total']-budget['spent']}')
 
         inp = input(f'Enter budget for {row.strip()}: ')
@@ -32,13 +36,13 @@ def make_budget():
         budget['column2'][i + 2] = inp
         print(padding_seperate(budget))
 
-
     table_str = final_row(budget)
     print(table_str)
     save_inp = input('Would you like to save the table to a file? (y/n): ').lower()
     if save_inp == 'y':
         file_name = input("Enter where to save file (default is 'output.md'): ") or 'output.md'
         save_to_file(file_name, table_str)
+    
     return table_str
 
 def padding_seperate(budget):
@@ -93,6 +97,7 @@ def save_to_file(file_name, content):
                 print(f'Appending the table to {file_name}')
                 with open(file_name, 'a', encoding='utf-8') as handle:
                     handle.write('\n'+content)
+                    print(f'Table has been appended to {file_name}.')
                 return
 
             print("Not a valid option. Enter 'y' or 'n'.")
@@ -101,4 +106,6 @@ def save_to_file(file_name, content):
         pass
     with open(file_name, 'w', encoding='utf-8') as handle:
         handle.write(content)
+        print(f'Table has been saved to {file_name}.')
+
     return

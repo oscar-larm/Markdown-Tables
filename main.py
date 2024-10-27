@@ -7,7 +7,7 @@ import md_table
 
 def main():
     ''' Main loop for generating a table. '''
-    print(md_table.make_budget())
+    print('\n'+md_table.make_budget()+'\n')
 
 if __name__ == '__main__':
     main()
